@@ -10,9 +10,8 @@ interface Props {
 }
 
 async function ProductsNewPage({ params } : Props ) {
-    // Usar await en params antes de acceder a sus propiedades
-    const paramsData = await params;
-    const product = paramsData.id ? await getProduct(paramsData.id) : null;
+    // No usar await en params, ya que no es una promesa
+    const product = params.id ? await getProduct(params.id) : null;
     console.log(product);
 
     return (
