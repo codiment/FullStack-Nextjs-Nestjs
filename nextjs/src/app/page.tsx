@@ -1,0 +1,36 @@
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
+import { getProducts } from "./products/products.api";
+import { ProductCard } from "@/components/product-card";
+
+
+export const dinamic = 'force-dynamic';
+
+async function HomePage() {
+
+  const products = await getProducts();
+  console.log(products)
+
+  return (
+    <>
+      <div className="flex justify-between">
+        <h1 className="text-4xl font-bold">NextNestApp</h1>
+       
+
+          <Link href='/products/new' className={buttonVariants()}>
+          Create Product
+          </Link>
+        
+      </div>
+      <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-4">
+        {
+          products.map((product: { id: number, name: string, description: string, price: number, image: string }) => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        }
+      </div>
+    </>
+  );
+}
+
+export default HomePage;
