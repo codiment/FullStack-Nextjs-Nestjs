@@ -4,7 +4,7 @@ import { getProducts } from "./products/products.api";
 import { ProductCard } from "@/components/product-card";
 
 
-export const dinamic = 'force-dynamic';
+export const dynamic = 'force-dynamic';
 
 async function HomePage() {
 
