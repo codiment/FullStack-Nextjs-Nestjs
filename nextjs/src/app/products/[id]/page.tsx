@@ -12,9 +12,10 @@ interface Props {
 
 async function ProductDetailPage( { params } : Props ) {
 
-    const resolvedParams = await params
-    const product = await getProduct(resolvedParams.id)
-    console.log(product)
+    // Eliminar esta línea que trata params como una promesa
+    // const resolvedParams = await params
+    const product = await getProduct(params.id);
+    console.log(product);
 
     return (
         <div className="flex justify-center items-center h-screen">
@@ -33,7 +34,6 @@ async function ProductDetailPage( { params } : Props ) {
                        $ {product.price}
                     </span>
                     <div className="flex justify-end">
-
                     <Link href='/' className={buttonVariants()}>
                     Go back
                     </Link>
