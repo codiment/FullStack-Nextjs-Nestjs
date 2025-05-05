@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { ProductForm } from '../../new/product-form';
 import { getProduct } from '../../products.api';
 
