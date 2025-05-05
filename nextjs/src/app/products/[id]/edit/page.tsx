@@ -2,11 +2,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ProductForm } from "../../new/product-form";
 import { getProduct } from "../../products.api";
 
-export default async function EditProductPage({ 
-  params 
-}: { 
-  params: { id: string } 
-}) {
+interface Props {
+  params: {
+    id: string
+  }
+}
+
+async function EditProductPage({ params }: Props) {
+  // Usar el mismo enfoque que en otras páginas
   const product = await getProduct(params.id);
   
   return (
@@ -19,3 +22,5 @@ export default async function EditProductPage({
     </div>
   );
 }
+
+export default EditProductPage;
